@@ -9,17 +9,19 @@ public class EnemiesSpawner : MonoBehaviour
 
     void Start()
     {
-        float maximumVertialPositionOfEnemy = -Camera.main.transform.position.z * Mathf.Tan(Camera.main.fieldOfView * 0.5f * Mathf.Deg2Rad);
-        float maximumHorizontalPositionOfEnemy = maximumVertialPositionOfEnemy * Camera.main.aspect;
+        CharactersPositionsBoundsComputer charactersPositionsBoundsComputer = Camera.main.GetComponent<CharactersPositionsBoundsComputer>();
+        float minimumHorizontalPositionOfEnemy = charactersPositionsBoundsComputer.minimumHorizontalPosition;
+        float maximumHorizontalPositionOfEnemy = charactersPositionsBoundsComputer.maximumHorizontalPosition;
+        float minimumVerticalPositionOfEnemy = charactersPositionsBoundsComputer.minimumVerticalPosition;
+        float maximumVerticalPositionOfEnemy = charactersPositionsBoundsComputer.maximumVerticalPosition;
         for (int index = 0; index < numberOfEnemies; index++) {
             GameObject enemy = Instantiate<GameObject>(Resources.Load<GameObject>("Enemy"), transform);
-            enemy.transform.localPosition = new Vector2(maximumHorizontalPositionOfEnemy * 2 * (UnityEngine.Random.value - 0.5f), maximumVertialPositionOfEnemy * 2 * (UnityEngine.Random.value - 0.5f));
+            enemy.transform.localPosition = new Vector2(
+                (Mathf.Abs(minimumHorizontalPositionOfEnemy) + Mathf.Abs(maximumHorizontalPositionOfEnemy)) * (UnityEngine.Random.value - 0.5f),
+                (Mathf.Abs(minimumVerticalPositionOfEnemy) + Mathf.Abs(maximumVerticalPositionOfEnemy)) * (UnityEngine.Random.value - 0.5f)
+            );
             EnemyMover enemyMover = enemy.GetComponent<EnemyMover>();
             enemyMover.mainCharacter = mainCharacter;
-            enemyMover.minimumHorizontalPosition = -maximumHorizontalPositionOfEnemy;
-            enemyMover.minimumVertialPosition = -maximumVertialPositionOfEnemy;
-            enemyMover.maximumHorizontalPosition = maximumHorizontalPositionOfEnemy;
-            enemyMover.maximumVerticalPosition = maximumVertialPositionOfEnemy;
         }
     }
 }

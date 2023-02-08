@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainCharacterController : MonoBehaviour
+public class MainCharacterController : BoundsRespectingMover
 {
     [SerializeField] float speed = 2f;
 
@@ -12,7 +12,7 @@ public class MainCharacterController : MonoBehaviour
         float verticalAxis = Input.GetAxis("Vertical");
 
         if (horizontalAxis != 0 || verticalAxis != 0) {
-            transform.Translate(new Vector2(horizontalAxis * speed * Time.deltaTime, verticalAxis * speed * Time.deltaTime));
+            MoveIfPossible((Vector2)transform.position + new Vector2(horizontalAxis * speed * Time.deltaTime, verticalAxis * speed * Time.deltaTime));
         }
     }
 }
