@@ -14,6 +14,8 @@ public class UIDocumentController : MonoBehaviour
     void OnEnable()
     {
         UIDocument uiDocument = GetComponent<UIDocument>();
+        Button playButton = uiDocument.rootVisualElement.Q("PlayButton") as Button;
+        playButton.RegisterCallback<ClickEvent>(Play);
         Button exitButton = uiDocument.rootVisualElement.Q("ExitButton") as Button;
         exitButton.RegisterCallback<ClickEvent>(ExitApplication);
         Button settingsButton = uiDocument.rootVisualElement.Q("SettingsButton") as Button;
@@ -23,11 +25,11 @@ public class UIDocumentController : MonoBehaviour
     void Update ()
     {
         if (Input.GetKeyDown("escape")) {
-            if (currentlySelectedScreen == SettingsScreenAssetName) {
+            if (currentlySelectedScreen == null || currentlySelectedScreen == SettingsScreenAssetName) {
                 OpenScreen(MainMenuAssetName);
                 OnEnable();
             }
-            else
+            else if (currentlySelectedScreen == MainMenuAssetName)
             {
                 Application.Quit();
             }
@@ -39,12 +41,17 @@ public class UIDocumentController : MonoBehaviour
         GameObject.FindFirstObjectByType<UnityEngine.UIElements.UIDocument>().visualTreeAsset = Resources.Load<VisualTreeAsset>(assetName);
     }
 
-    void OpenSettings(ClickEvent clickEvent)
+    void Play (ClickEvent clickEvent)
+    {
+        OpenScreen(null);
+    }
+
+    void OpenSettings (ClickEvent clickEvent)
     {
         OpenScreen(SettingsScreenAssetName);
     }
 
-    void ExitApplication(ClickEvent clickEvent)
+    void ExitApplication (ClickEvent clickEvent)
     {
         Application.Quit();
     }
