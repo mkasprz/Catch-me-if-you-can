@@ -23,3 +23,7 @@
     -unity-text-align: upper-center;
     white-space: normal;
 }
+
+.checkbox {
+    align-self: center;
+}

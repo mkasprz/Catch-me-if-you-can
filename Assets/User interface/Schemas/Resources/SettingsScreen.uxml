@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/User%20interface/Style%20sheets/Main.uss?fileID=7433441132597879392&amp;guid=cb0d307645247c64e811bd0ff31274b4&amp;type=3#Main" />
+    <ui:Label tabindex="-1" text="Catch me if you can!" display-tooltip-when-elided="true" class="title" />
+    <ui:VisualElement class="main-container" style="max-width: 100%;">
+        <ui:Label tabindex="-1" text="Settings" display-tooltip-when-elided="true" class="subtitle" />
+        <ui:Toggle label="Toggle" class="checkbox" />
+        <ui:Toggle label="Toggle" class="checkbox" />
+    </ui:VisualElement>
+</ui:UXML>
