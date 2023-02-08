@@ -1,19 +1,23 @@
+Label {
+  color: white;
+}
+
 .main-container {
+    width: 400px;
     flex-grow: 1;
     background-color: rgba(0, 0, 0, 0);
     justify-content: center;
-    min-width: auto;
+    /* min-width: auto;
     min-height: auto;
-    max-width: none;
+    max-width: none; */
     align-self: center;
-    align-items: stretch;
+    /* align-items: stretch; */
     flex-shrink: 1;
-    width: 400px;
 }
 
 .title {
-    -unity-text-align: upper-center;
     font-size: 40px;
+    -unity-text-align: upper-center;
     -unity-font-style: bold;
     white-space: normal;
 }
