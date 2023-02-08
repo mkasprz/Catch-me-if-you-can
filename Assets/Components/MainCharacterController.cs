@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class MainCharacterController : MonoBehaviour
 {
-    [SerializeField] float speed = 0.2f;
+    [SerializeField] float speed = 2f;
 
     void Update()
     {
@@ -12,7 +12,7 @@ public class CharacterController : MonoBehaviour
         float verticalAxis = Input.GetAxis("Vertical");
 
         if (horizontalAxis != 0 || verticalAxis != 0) {
-            transform.Translate(new Vector2(horizontalAxis * speed, verticalAxis * speed));
+            transform.Translate(new Vector2(horizontalAxis * speed * Time.deltaTime, verticalAxis * speed * Time.deltaTime));
         }
     }
 }

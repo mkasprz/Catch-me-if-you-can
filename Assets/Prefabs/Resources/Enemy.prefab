@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4306470214409856207}
   - component: {fileID: 2139805913521303862}
+  - component: {fileID: 8406965523739043472}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2139805913521303862
 SpriteRenderer:
@@ -84,3 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8406965523739043472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6234617417193099059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a5f7431c54ac546a795bdafb79ac60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  mainCharacter: {fileID: 0}
+  minimumVertialPosition: 0
+  minimumHorizontalPosition: 0
+  maximumVerticalPosition: 0
+  maximumHorizontalPosition: 0
+  cought: 0
