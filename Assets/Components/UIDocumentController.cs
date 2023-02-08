@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 
 public class UIDocumentController : MonoBehaviour
@@ -25,7 +26,7 @@ public class UIDocumentController : MonoBehaviour
     void Update ()
     {
         if (Input.GetKeyDown("escape")) {
-            if (currentlySelectedScreen == null || currentlySelectedScreen == SettingsScreenAssetName) {
+            if (currentlySelectedScreen == SettingsScreenAssetName) {
                 OpenScreen(MainMenuAssetName);
                 OnEnable();
             }
@@ -43,7 +44,7 @@ public class UIDocumentController : MonoBehaviour
 
     void Play (ClickEvent clickEvent)
     {
-        OpenScreen(null);
+        SceneManager.LoadScene("1");
     }
 
     void OpenSettings (ClickEvent clickEvent)

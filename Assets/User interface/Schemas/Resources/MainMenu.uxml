@@ -2,7 +2,6 @@
     <Style src="project://database/Assets/User%20interface/Style%20sheets/Main.uss?fileID=7433441132597879392&amp;guid=cb0d307645247c64e811bd0ff31274b4&amp;type=3#Main" />
     <ui:Label tabindex="-1" text="Catch me if you can!" display-tooltip-when-elided="true" class="title" />
     <ui:VisualElement class="main-container" style="max-width: 100%;">
-        <ui:Label tabindex="-1" text="Main menu" display-tooltip-when-elided="true" class="subtitle" />
         <ui:Button text="Play" display-tooltip-when-elided="true" name="PlayButton" />
         <ui:Button text="Settings" display-tooltip-when-elided="true" name="SettingsButton" />
         <ui:Button text="Exit" display-tooltip-when-elided="true" name="ExitButton" />
