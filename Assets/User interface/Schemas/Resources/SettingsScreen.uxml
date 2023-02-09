@@ -6,4 +6,5 @@
         <ui:Toggle label="Toggle" class="checkbox" />
         <ui:Toggle label="Toggle" class="checkbox" />
     </ui:VisualElement>
+    <ui:Button text="Back" display-tooltip-when-elided="true" name="BackButton" class="back-button" />
 </ui:UXML>
