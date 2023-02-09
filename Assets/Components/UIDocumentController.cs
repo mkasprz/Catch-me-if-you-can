@@ -13,14 +13,14 @@ public class UIDocumentController : MonoBehaviour
     void OnEnable()
     {
         uiDocument = GetComponent<UIDocument>();
-        OpenMainMenu(null);
+        OpenMainMenu();
     }
 
     void Update()
     {
         if (Input.GetKeyDown("escape")) {
             if (currentlySelectedScreen == SettingsScreenAssetName) {
-                OpenMainMenu(null);
+                OpenMainMenu();
             }
             else if (currentlySelectedScreen == MainMenuAssetName)
             {
@@ -29,34 +29,30 @@ public class UIDocumentController : MonoBehaviour
         }
     }
 
+    void OpenMainMenu() {
+        OpenScreen(MainMenuAssetName);
+        ((Button)uiDocument.rootVisualElement.Q("PlayButton")).clicked += () => Play();
+        ((Button)uiDocument.rootVisualElement.Q("ExitButton")).clicked += () => ExitApplication();
+        ((Button)uiDocument.rootVisualElement.Q("SettingsButton")).clicked += () => OpenSettings();
+    }
+
     void OpenScreen(string assetName) {
         currentlySelectedScreen = assetName;
         uiDocument.visualTreeAsset = Resources.Load<VisualTreeAsset>(assetName);
     }
 
-    void Play(ClickEvent clickEvent)
+    void Play()
     {
         SceneManager.LoadScene("1");
     }
 
-    void OpenMainMenu(ClickEvent clickEvent) {
-        OpenScreen(MainMenuAssetName);
-        Button playButton = uiDocument.rootVisualElement.Q("PlayButton") as Button;
-        playButton.RegisterCallback<ClickEvent>(Play);
-        Button exitButton = uiDocument.rootVisualElement.Q("ExitButton") as Button;
-        exitButton.RegisterCallback<ClickEvent>(ExitApplication);
-        Button settingsButton = uiDocument.rootVisualElement.Q("SettingsButton") as Button;
-        settingsButton.RegisterCallback<ClickEvent>(OpenSettings);
-    }
-
-    void OpenSettings(ClickEvent clickEvent)
+    void OpenSettings()
     {
         OpenScreen(SettingsScreenAssetName);
-        Button settingsButton = uiDocument.rootVisualElement.Q("BackButton") as Button;
-        settingsButton.RegisterCallback<ClickEvent>(OpenMainMenu);
+        ((Button)uiDocument.rootVisualElement.Q("BackButton")).clicked += () => OpenMainMenu();
     }
 
-    void ExitApplication(ClickEvent clickEvent)
+    void ExitApplication()
     {
         Application.Quit();
     }
