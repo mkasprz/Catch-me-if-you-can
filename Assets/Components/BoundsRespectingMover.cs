@@ -7,7 +7,7 @@ public class BoundsRespectingMover : MonoBehaviour
     float minimumHorizontalPosition;
     float maximumHorizontalPosition;
 
-    void Start()
+    private protected void Start()
     {
         CharactersPositionsBoundsComputer charactersPositionsBoundsComputer = Camera.main.GetComponent<CharactersPositionsBoundsComputer>();
         minimumHorizontalPosition = charactersPositionsBoundsComputer.minimumHorizontalPosition;
